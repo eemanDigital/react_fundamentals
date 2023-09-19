@@ -4,6 +4,7 @@ const Form = () => {
   const [state, setState] = useState("");
   const [tasks, setTasks] = useState([]);
   const [add, setAdd] = useState(false);
+  const [deleteNotice, setDeleteNotice] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -22,12 +23,14 @@ const Form = () => {
   const handleDelete = (id) => {
     const removeTask = tasks.filter((task) => task.id !== id);
     setTasks(removeTask);
+    setDeleteNotice(true);
   };
 
   //remove notification
   setTimeout(() => {
-    setAdd(false);
-  }, 3000);
+    setAdd(false); //removes add notification
+    setDeleteNotice(false); //remove delete notification
+  }, 2000);
 
   return (
     <>
@@ -41,7 +44,7 @@ const Form = () => {
               type="text"
               value={state}
               onChange={(e) => setState(e.target.value)}
-              placeholder="Enter your schedule"
+              placeholder="Enter your task...."
             />
             <button className="btn1" type="submit">
               Submit
@@ -55,13 +58,21 @@ const Form = () => {
             </div>
           )}
 
+          {deleteNotice && (
+            <div className="notice">
+              <p>task deleted</p>
+            </div>
+          )}
+
           {tasks.map((task) => {
             return (
-              <ul key={task.id}>
+              <ul className="ul_container" key={task.id}>
                 {" "}
                 {/* Use 'ul' instead of 'ol' for an unordered list */}
                 <li>{task.message}</li>
-                <button onClick={() => handleDelete(task.id)}>X</button>
+                <button className="btn2" onClick={() => handleDelete(task.id)}>
+                  x
+                </button>
               </ul>
             );
           })}

@@ -8,16 +8,46 @@ input {
   padding: 20px;
   margin-bottom: 20px;
   width: 100%;
-  font-size: 20px;
+  font-size: 15px;
   box-sizing: border-box;
 }
 
-button {
+.btn1 {
   width: 100%;
   padding: 10px;
-  background-color: magenta;
+  background-color: rgb(0, 123, 255);
   border: none;
   color: #fff;
   font-size: 18px;
   letter-spacing: 2px;
+}
+
+.ul_container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+.ul_container li {
+  padding: 8px;
+  font-size: 19px;
+}
+
+.btn2 {
+  border: none;
+  background: red;
+  color: #fff;
+  padding: 10px;
+}
+
+.notice {
+  background: rgb(4, 195, 4);
+  text-align: center;
+  padding: 1px;
+  /* width: 100px; */
+  margin-top: 10px;
+  color: #ffff;
+  /* display: inline-block; */
+  font-size: 17px;
+  letter-spacing: 1.5px;
 }
