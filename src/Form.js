@@ -3,6 +3,7 @@ import { useState } from "react";
 const Form = () => {
   const [state, setState] = useState("");
   const [tasks, setTasks] = useState([]);
+  const [add, setAdd] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -13,8 +14,13 @@ const Form = () => {
 
     const updatedTasks = [...tasks, newTask];
     setTasks(updatedTasks);
+    setAdd(true);
     setState(""); // Clear the input field after submitting
   };
+
+  setTimeout(() => {
+    setAdd(false);
+  }, 1000);
 
   return (
     <>
@@ -33,6 +39,13 @@ const Form = () => {
             <button type="submit">Submit</button>{" "}
             {/* Specify 'type' as 'submit' */}
           </form>
+
+          {/* give notice of added task */}
+          {add && (
+            <div className="notice">
+              <p>task added</p>
+            </div>
+          )}
 
           {tasks.map((task) => {
             return (
