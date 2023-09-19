@@ -18,9 +18,16 @@ const Form = () => {
     setState(""); // Clear the input field after submitting
   };
 
+  //handle removal of task
+  const handleDelete = (id) => {
+    const removeTask = tasks.filter((task) => task.id !== id);
+    setTasks(removeTask);
+  };
+
+  //remove notification
   setTimeout(() => {
     setAdd(false);
-  }, 1000);
+  }, 3000);
 
   return (
     <>
@@ -36,8 +43,9 @@ const Form = () => {
               onChange={(e) => setState(e.target.value)}
               placeholder="Enter your schedule"
             />
-            <button type="submit">Submit</button>{" "}
-            {/* Specify 'type' as 'submit' */}
+            <button className="btn1" type="submit">
+              Submit
+            </button>
           </form>
 
           {/* give notice of added task */}
@@ -53,6 +61,7 @@ const Form = () => {
                 {" "}
                 {/* Use 'ul' instead of 'ol' for an unordered list */}
                 <li>{task.message}</li>
+                <button onClick={() => handleDelete(task.id)}>X</button>
               </ul>
             );
           })}
