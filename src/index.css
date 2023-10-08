@@ -1,15 +1,40 @@
+html {
+  font-size: 1.1rem;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
 .container {
   display: flex;
   flex-direction: column;
-  /* width: 90%; */
+  width: 65%;
+  margin: 5em auto;
+  justify-content: center;
   align-items: center;
+  /* margin-top: 3em; */
+  /* box-sizing: border-box; */
 }
+
+.form-container {
+  border: 2px solid skyblue;
+  width: 100%;
+  min-height: 500px;
+  padding: 0 2.2em;
+  border-radius: 10px;
+  background-color: bisque;
+  text-align: center;
+  box-sizing: border-box;
+}
+
 input {
-  padding: 20px;
+  padding: 10px;
   margin-bottom: 20px;
   width: 100%;
-  font-size: 15px;
+  /* font-size: 15px; */
   box-sizing: border-box;
+  font: inherit;
 }
 
 .btn1 {
@@ -20,6 +45,7 @@ input {
   color: #fff;
   font-size: 18px;
   letter-spacing: 2px;
+  font: inherit;
 }
 
 .ul_container {
@@ -27,10 +53,14 @@ input {
   flex-direction: row;
   justify-content: space-between;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  margin-top: 0.5em;
+  width: 100%;
+  background-color: #fff;
 }
 .ul_container li {
-  padding: 8px;
-  font-size: 19px;
+  list-style-type: none;
+  padding: 0;
+  /* line-height: 0.3; */
 }
 
 .btn2 {
@@ -39,15 +69,15 @@ input {
   color: #fff;
   padding: 10px;
 }
-
+/* 
 .notice {
   background: rgb(4, 195, 4);
   text-align: center;
   padding: 1px;
-  /* width: 100px; */
+
   margin-top: 10px;
   color: #ffff;
-  /* display: inline-block; */
+ 
   font-size: 17px;
   letter-spacing: 1.5px;
-}
+}*/
