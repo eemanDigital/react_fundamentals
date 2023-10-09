@@ -27,6 +27,9 @@ const Form = ({
     setTasks(updatedTasks);
     // setAddNotice(true);
     // setTasks("");
+    setText("");
+    setDay("");
+    setTime("");
   };
 
   //handle removal of task
@@ -46,7 +49,7 @@ const Form = ({
         <h1>{title.toUpperCase()}</h1>
         <form onSubmit={handleSubmit} action="">
           {" "}
-          Use 'onSubmit' instead of 'onClick'
+          {/* Use 'onSubmit' instead of 'onClick' */}
           <input
             ref={myRef}
             type="text"
