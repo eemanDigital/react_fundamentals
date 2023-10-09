@@ -1,49 +1,70 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import Tasks from "./Tasks";
 
 const Form = ({
   title,
-  handleSubmit,
-  addNotice,
+  // addNotice,
   tasks,
-  handleDelete,
-  deleteNotice,
-  state,
   setTasks,
+  // deleteNotice,
 }) => {
+  const [text, setText] = useState("");
+  const [day, setDay] = useState("");
+  const [time, setTime] = useState("");
+
   const myRef = useRef();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (!text) return;
+    console.log("Form Submitted");
+    const newId = Date.now(); //used as placeholder for ID
+    const newTask = { id: newId, text, day, time };
+    // console.log(newTask);
+
+    const updatedTasks = [...tasks, newTask];
+    console.log(updatedTasks);
+    setTasks(updatedTasks);
+    // setAddNotice(true);
+    // setTasks("");
+  };
+
+  //handle removal of task
+
+  const handleDelete = (id) => {
+    const removeTask = tasks.filter((task) => task.id !== id);
+    setTasks(removeTask);
+    // setDeleteNotice(true);
+  };
 
   useEffect(() => {
     myRef.current.focus();
   }, []);
-
   return (
     <>
       <div className="form-container">
         <h1>{title.toUpperCase()}</h1>
         <form onSubmit={handleSubmit} action="">
           {" "}
-          {/* Use 'onSubmit' instead of 'onClick' */}
+          Use 'onSubmit' instead of 'onClick'
           <input
             ref={myRef}
             type="text"
-            value={tasks.message}
-            onChange={(e) => setTasks(e.target.value)}
+            value={text}
+            onChange={(e) => setText(e.target.value)}
             placeholder="Enter your task...."
           />
-          <label htmlFor="date" value={tasks.date}>
-            Date
-          </label>
+          <label htmlFor="date">Date</label>
           <input
             type="date"
-            value={tasks.date}
-            onChange={(e) => setTasks(e.target.value)}
+            value={day}
+            onChange={(e) => setDay(e.target.value)}
           />
           <label htmlFor="time">Time</label>
           <input
             type="time"
-            value={tasks.time}
-            onChange={(e) => setTasks(e.target.value)}
+            value={time}
+            onChange={(e) => setTime(e.target.value)}
           />
           <button className="btn1" type="submit">
             Submit
@@ -51,7 +72,7 @@ const Form = ({
         </form>
 
         {/* give notice of added task */}
-        {addNotice && (
+        {/* {addNotice && (
           <div className="notice">
             <p>task added</p>
           </div>
@@ -61,7 +82,7 @@ const Form = ({
           <div className="notice">
             <p>task deleted</p>
           </div>
-        )}
+        )} */}
 
         <Tasks tasks={tasks} handleDelete={handleDelete} />
       </div>

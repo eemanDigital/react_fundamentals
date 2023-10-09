@@ -5,10 +5,10 @@ function Task({ task, handleDelete }) {
     <div className="ul_container">
       <ul>
         <li>
-          {task.message}
+          {task.text}
           <li>
             Date:
-            {task.date}
+            {task.day}
             <li>Time:{task.time}</li>
           </li>
         </li>

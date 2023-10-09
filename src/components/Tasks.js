@@ -1,11 +1,13 @@
 import React from "react";
 import Task from "./Task";
 
+// function Tasks({ tasks, handleDelete }) {
 function Tasks({ tasks, handleDelete }) {
   return (
     <>
       {tasks.map((task) => {
         return <Task key={task.id} task={task} handleDelete={handleDelete} />;
+        // return <Task key={task.id} task={task} />;
       })}
 
       <div className="task_number">
